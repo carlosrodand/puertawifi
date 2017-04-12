@@ -7,10 +7,6 @@ CONFIGURACION.ssid="PuertaWiFi"  -- nombre wifi
 CONFIGURACION.pwd="torreatalaya" -- clave
 wifi.ap.config(CONFIGURACION)
 
-pin=12             -- conexion del LED
-gpio.mode(pin,gpio.OUTPUT) -- configura pin de salida para led
-gpio.write(pin,0)
-
 if(servidorWeb~=nil) then -- si el servidor existe lo cerramos
     servidorWeb:close()
     servidorWeb=nil
@@ -33,14 +29,14 @@ servidorWeb:listen(80,function(conn)
         -- llegó la orden pin=ON
         print("pin=ON")
         luminosidad:stop()
-        gpio.write(pin,1)
+        gpio.write(farolas,1)
         sonido(1000,75,512) -- sonido agudo
     end
     if (string.find(pagina,"pin=OFF")) then
         -- llegó la orden pin=ON
         print("pin=OFF")
         luminosidad:stop()
-        gpio.write(pin,0)
+        gpio.write(farolas,0)
         sonido(1000,75,512) -- sonido agudo
     end
      if (string.find(pagina,"auto")) then

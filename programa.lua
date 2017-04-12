@@ -32,7 +32,7 @@ gpio.write(motor1,0)
 gpio.mode(motor2,gpio.OUTPUT) -- motor2
 gpio.write(motor2,0)
 
-gpio.mode(farolas,gpio.OUTPUT) -- motor2
+gpio.mode(farolas,gpio.OUTPUT) -- luces farolas
 gpio.write(farolas,0)
 
 gpio.mode(fincar1,gpio.INPUT) -- para leer findes de carrera
