@@ -32,7 +32,7 @@ gpio.write(motor1,0)
 gpio.mode(motor2,gpio.OUTPUT) -- motor2
 gpio.write(motor2,0)
 
-gpio.mode(farolas,gpio.OUTPUT) -- luces farolas
+gpio.mode(farolas,gpio.OUTPUT) --  led farolas
 gpio.write(farolas,0)
 
 gpio.mode(fincar1,gpio.INPUT) -- para leer findes de carrera
@@ -71,13 +71,7 @@ temporizador=tmr.create()  --temporizador de cerrado
 temporizador:register(tiempocerrar, tmr.ALARM_SEMI, cerrar)
 
 -- estado de la puerta al principio
-if(gpio.read(fincar1)==0) then
-    estado="cerrado"  
-elseif (gpio.read(fincar2)==0) then
-   estado ="abierto_principio"
-else
-   estado="entreabierto"
-end
+estado="cerrado"
 
 print(estado)
 
@@ -174,7 +168,7 @@ end
 function boton(level)--fun. boton
    print("Pulsación botón")
 
-   if estado=="cerrado" or estado=="entreabierto" then
+   if estado=="cerrado" then
 
    if(gpio.read(fincar2)==0) then
     estado="abriendo"
@@ -194,8 +188,6 @@ function boton(level)--fun. boton
      print(estado)
  
    end
-
-   if estado=="abierto_principio" then cerrar() end
    
 end -- fin fun. boton
 
