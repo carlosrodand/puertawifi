@@ -17,7 +17,7 @@ El funcionamiento de la puerta es el siguiente:
 4. Si durante el cierre se detecta un obstáculo en el camino de la puerta, la puerta retrocede a la posición de apertura y el zumbido suena con más frecuencia. Se continúa en el paso 2.
 5. Cuando la puerta se cierra totalmente se detiene la puerta, se apaga el semáforo y el zumbido.
 
-Además de esto se comprueba regularmente el nivel de luz ambiente mediante un sensor crepuscular y cuando el nivel de luz baja se encienden las farolas de la calle. Cuando el nivel de luz es alto, las farolas se apagan.
+Además de esto se comprueba regularmente el nivel de luz ambiente mediante un sensor y cuando el nivel de luz baja se encienden las farolas de la calle. Cuando el nivel de luz es alto, las farolas se apagan.
 
 El control del sistema lo realiza un módulo ESP8266 con conexión Wi-Fi. Hemos programado una página web que permite controlar y programar la puerta. A **través de la Wi-Fi** se puede:
 * abrir la puerta
