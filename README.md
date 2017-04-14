@@ -26,7 +26,7 @@ El control del sistema lo realiza un módulo ESP8266 con conexión Wi-Fi. Hemos 
 * cambiar el volumen del altavoz
 * apagar o encender las farolas o activar su funcionamiento automático
 
-Estas funciones se pueden realizar a traves de un **navegador web** una vez que nos hemos conectado al punto de acceso Wi-Fi que genera el módulo ESP. 
+Estas funciones se pueden realizar a traves de un **navegador web** una vez que nos hemos conectado al punto de acceso Wi-Fi que genera el módulo ESP. La dirección por defecto del módulo ESP es 192.168.4.1
 
 También podemos usar la **aplicación Android** que hemos desarrollado con App Inventor para controlar la puerta.
 
