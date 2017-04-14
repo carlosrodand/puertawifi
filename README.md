@@ -48,7 +48,7 @@ Para controlar nuestra puerta hemos usado un módulo ESP8266 con firmware NodeMC
 Los componentes eléctronicos que no hemos reusado de aparatos viejos, los hemos comprado por ebay en tiendas de electrónica. El componente más caro es el módulo ESP8266 que ha costado sobre 6 euros en una tienda española de ebay.
 
 Materiales para la electrónica:
-* placa de desarrollo ESP8266 NodeMCU (programación)
+* placa de desarrollo ESP8266 NodeMCU (control)
 * circuito integrado L293 (corriente al motor)
 * LED rojo y verde, y resistencia 220 Ohms (semáforo)
 * pulsador (botón apertura)
@@ -66,4 +66,7 @@ Materiales para la electrónica:
 
 La [App para Android está disponible en la galería](http://ai2.appinventor.mit.edu/?galleryId=6638221398900736) de [App Inventor](http://ai2.appinventor.mit.edu). Se puede buscar por el nombre (App Puerta Wi-Fi). También se ha exportado e incluido en el repositorio [APP_Puerta.aia](AppInventor2/APP_Puerta.aia)
 ## Referencias
+[Documentación módulos del firmware NodeMCU URL](https://nodemcu.readthedocs.io/en/master/en/)
+[Drivers para conectar con la placa NodeMCU](https://www.pololu.com/docs/0J7/all)
+[ESPlorer: IDE para trabajar y conectarnos con el ESP8266 NodeMCU](https://esp8266.ru/esplorer/)
 
