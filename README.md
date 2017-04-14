@@ -62,6 +62,22 @@ Materiales para la electrónica:
 
 ## Programación
 
+La programación el módulo ESP que controla la puerta se ha realizado usando el lenguaje Lua y el firmware NodeMCU para ESP8266. NodeMCU proporciona funciones sencillas para configurar la Wi-Fi o controlar las salidas y entradas digitales del módulo (GPIO). Algunos de los módulos del firmware NodeMCU que hemos utilizado son:
+* wifi: para crear una red Wi-Fi
+* gpio: para controlar las salidas y entradas digitales del módulo
+* adc: para leer la entrada analógica del módulo y poder medir la intensidad de luz
+* tmr: para crear temporizadores
+* pwm: para generar una onda y hacer sonar un pitido en el altavoz
+* net: para crear un servidor de páginas web
+
+Para la mayoría de los problemas de programación que hemos tenido que resolver hemos seguido los ejemplos que se pueden encontrar en la [documentación módulos del firmware NodeMCU](https://nodemcu.readthedocs.io/en/master/en/).
+
+Las entradas digitales que provienen del pulsador de apertura, los finales de carrera y el sensor de obstáculos están controladas mediante interrupciones (creadas con las funciones del módulo gpio). Cuando cualquiera de estas entradas cambia de estado se ejecuta una función que comprueba el estado en el que se encuentra la puerta y si es necesario, cambia al nuevo estado activando las salidas necesarias (motor, semáforo, ...).
+
+Hemos utilizado la función [devounce](https://gist.github.com/marcelstoer/59563e791effa4acb65f) para evitar rebotes en esas señales de entrada que pudiesen disparar varias veces la interrupción correspondiente. Antes de utizarla, por ejemplo, al pulsar el botón de apertura, se registraban varias pulsaciones seguidas.
+
+Para crear el servidor de páginas web y cómo controlar el módulos desde una aplicación móvil hemos usado los tutoriales: [servidor web](http://randomnerdtutorials.com/esp8266-web-server/) y [aplicación android](http://randomnerdtutorials.com/esp8266-controlled-with-android-app-mit-app-inventor/)
+
 ## Aplicación móvil
 
 Hemos diseñado una sencilla aplicación móvil para controlar la puerta usando App Inventor, una herramienta online para programar aplicaciones Android, muy visual y que permiter programar usando bloques.
@@ -70,7 +86,7 @@ Por ejemplo en la página principal de nuestra App hay un botón para abrir la p
 
 ![app](imagenes/screen_app.PNG)
 
-La función que realiza este botón es llamar a la página web de nuestro módulo ESP con el parámetro abrir, que será detectado por nuestro código y lanzará la misma función que se ejecuta cuando se pulsa físicamente el pulsador de apertura.
+La función que realiza este botón es llamar a la página web de nuestro módulo ESP con el parámetro abrir (http://192.168.4.1/?abrir), que será detectado por nuestro código y lanzará la misma función que se ejecuta cuando se pulsa físicamente el pulsador de apertura.
 ![bloques](imagenes/ejemplo_bloques.PNG)
 
 La [App para Android está disponible en la galería](http://ai2.appinventor.mit.edu/?galleryId=6638221398900736) de App Inventor. Se puede buscar por el nombre (App Puerta Wi-Fi). También se ha exportado e incluido en el repositorio [APP_Puerta.aia](AppInventor2/APP_Puerta.aia)
@@ -82,5 +98,10 @@ La [App para Android está disponible en la galería](http://ai2.appinventor.mit
 
 [ESPlorer: para trabajar y conectarnos con el ESP8266 NodeMCU](https://esp8266.ru/esplorer/)
 
-[App Inventor](http://ai2.appinventor.mit.edu)
+[MIT App Inventor](http://ai2.appinventor.mit.edu)
 
+[Tutorial servidor web en ESP8266](http://randomnerdtutorials.com/esp8266-web-server/)
+
+[Tutorial control con aplicación android en ESP8266](http://randomnerdtutorials.com/esp8266-controlled-with-android-app-mit-app-inventor/)
+
+[Función para evitar rebotes en la pulsación de un botón](https://gist.github.com/marcelstoer/59563e791effa4acb65f)
