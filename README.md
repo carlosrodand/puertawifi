@@ -58,7 +58,7 @@ Materiales para la electrónica:
 * LDR (fotoresistencia) y resistencia 10 KOhms (para sensor luz)
 * 2 LEDS blancos y resistencia 220 Ohms (farolas)
 * cables de conexión (reusados de cables de red)
-* placa protoboard para el montaje
+* placa de conexiones protoboard para el montaje
 
 ## Programación
 
