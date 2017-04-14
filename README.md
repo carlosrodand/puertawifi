@@ -1,3 +1,4 @@
+# Página en construcción
 # Puerta automática con control Wi-Fi
 ![puerta](imagenes/puerta.jpg)
 ### IES Torre Atalaya
