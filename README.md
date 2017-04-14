@@ -89,11 +89,11 @@ Hemos utilizado la [función devounce disponible en github](https://gist.github.
 
 ### Servidor de páginas web
 
-Al arrancar el programa se crea un servidor de páginas web que queda pendiente de las peticiones que lleguén por la red Wi-Fi. El servidor queda a la escucha en http://192.168.4.1 
+Al arrancar el programa se crea un servidor de páginas web que queda pendiente de las peticiones que lleguén por la red Wi-Fi. El servidor queda a la escucha en ```http://192.168.4.1```
 
 Para crear el servidor de páginas web y cómo controlar el módulos desde una aplicación móvil nos hemos basado en dos tutoriales: [servidor web](http://randomnerdtutorials.com/esp8266-web-server/) y [aplicación android](http://randomnerdtutorials.com/esp8266-controlled-with-android-app-mit-app-inventor/)
 
-Cuando llega una petición analizamos su contenido y actuamos en consecuencia. Por ejemplo para abrir la puerta, cuando llega la petición "http://192.168.4.1/?abrir" al servidor de páginas web, llamamos a la función ```boton()``` que es la que se ejecuta cuando se pulsa el botón de apertura. Para cambiar el volumen del altavoz o el tiempo de apertura de la puerta, lo que hacemos es cambiar el valor de las variables que almacenan estos parámetros.
+Cuando llega una petición analizamos su contenido y actuamos en consecuencia. Por ejemplo para abrir la puerta, cuando llega la petición ```http://192.168.4.1/?abrir``` al servidor de páginas web, llamamos a la función ```boton()``` que es la que se ejecuta cuando se pulsa el botón de apertura. Para cambiar el volumen del altavoz o el tiempo de apertura de la puerta, lo que hacemos es cambiar el valor de las variables que almacenan estos parámetros.
 
 ![web](imagenes/web.PNG)
 
@@ -132,7 +132,7 @@ Por ejemplo en la página principal de nuestra App hay un botón para abrir la p
 
 ![app](imagenes/screen_app.PNG)
 
-La función que realiza este botón es llamar a la página web de nuestro módulo ESP con el parámetro abrir (http://192.168.4.1/?abrir), que será detectado por nuestro código y lanzará la misma función que se ejecuta cuando se pulsa físicamente el pulsador de apertura.
+La función que realiza este botón es llamar a la página web de nuestro módulo ESP con el parámetro abrir (```http://192.168.4.1/?abrir```), que será detectado por nuestro código y lanzará la misma función que se ejecuta cuando se pulsa físicamente el pulsador de apertura.
 
 ![bloques](imagenes/ejemplo_bloques.PNG)
 
