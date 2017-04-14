@@ -40,7 +40,7 @@ Materiales para la construcción:
 * 2 rodamientos de bolas (reusados de rueda patín)
 * motor eléctrico (reusado de lector DVD)
 
-## Diseño electrónica
+## Diseño de la electrónica
 
 Para controlar nuestra puerta hemos usado un módulo ESP8266 con firmware NodeMCU. Este módulo tiene un microcontrolador que se puede programar usando el lenguaje Lua y además tiene conectividad Wi-Fi. Con ayuda de unos interruptores fin de carrera podemos detectar cuando la puerta llega al final de la apertura o cierre. También hemos usado un sensor de obstáculos por infrarrojos para detectar obstaculos en el camino de la puerta y poder evitar accidentes. El motor lo controlamos con ayuda de un circuito integrado L293 que se encarga de dar corriente al motor y cambiar la polaridad dependiendo del estado de dos salidas de nuestro módulo ESP8266.
 
@@ -58,6 +58,8 @@ Materiales para la electrónica:
 * 2 LEDS blancos y resistencia 220 Ohms (farolas)
 * cables de conexión (reusados de cables de red)
 * placa de conexiones protoboard para el montaje
+
+![esquema electrónica](imagenes/electronica.PNG)
 
 ## Programación
 
