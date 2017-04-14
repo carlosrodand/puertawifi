@@ -20,15 +20,15 @@ El funcionamiento de la puerta es el siguiente:
 
 Además de esto se comprueba regularmente el nivel de luz ambiente mediante un sensor crepuscular y cuando el nivel de luz baja se encienden las farolas de la calle. Cuando el nivel de luz es alto, las farolas se apagan.
 
-El control del sistema lo realiza un módulo ESP8266 con conexión Wi-Fi. Hemos programado un pequeño servidor web que permite controlar y programar la puerta. A **través de la Wi-Fi** se puede:
+El control del sistema lo realiza un módulo ESP8266 con conexión Wi-Fi. Hemos programado una página web que permite controlar y programar la puerta. A **través de la Wi-Fi** se puede:
 * abrir la puerta
 * cambiar el tiempo de apertura de la puerta
 * cambiar el volumen del altavoz
 * apagar o encender las farolas o activar su funcionamiento automático
 
-Estas funciones se pueden realizar a traves de un **navegador web** una vez que nos hemos conectado al punto de acceso Wi-Fi que genera el módulo ESP. La dirección por defecto del módulo ESP es 192.168.4.1
+Estas funciones se pueden realizar a traves de un **navegador web** una vez que nos hemos conectado al punto de acceso Wi-Fi que genera el módulo ESP (en nuestro caso: PuertaWiFi , clave: torreatalaya). La dirección de la página web es http://192.168.4.1
 
-También podemos usar la **aplicación Android** que hemos desarrollado con App Inventor para controlar la puerta.
+También podemos usar la **aplicación Android** que hemos desarrollado con App Inventor para controlar la puerta y realizar las mismas funciones que hay en la página web.
 
 ## Diseño mecánico
 El diseño mecánico de la puerta corredera está basado en el mecanismo "tornillo-tuerca", donde un motor eléctrico, mediante un sistema de poleas y correa, hace girar el tornillo (varilla roscada) que consigue que la puerta se deslice al estar fijada a dos tuercas que están insertadas en la varilla roscada. Para mejorar la suavidad de funcionamiento, la varilla roscada está sujeta mediante dos rodamientos de bolas.
