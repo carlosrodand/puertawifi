@@ -82,7 +82,7 @@ Para controlar la puerta mantenemos en una variable el estado actual de la puert
 
 Los eventos en nuestro programa los provocan las entradas digitales que están conectadas al pulsador de apertura, los finales de carrera y el sensor de obstáculos. Estás entradas provocan interrupciones (configuradas con las funciones del módulo gpio). Las interrupciones son un mecanismo que permite ejecutar una función (tratamiento de la interrupción) cuando se produce un evento identificado por un cambio en el estado de una entrada digital. Cuando cualquiera de estas entradas cambia de estado se ejecuta la función correspondiente, que comprueba el estado en el que se encuentra la puerta y si es necesario, cambia al nuevo estado activando las salidas necesarias (motor, semáforo, ...).
 
-Hemos utilizado la función [devounce](https://gist.github.com/marcelstoer/59563e791effa4acb65f) disponible en github, para evitar rebotes en esas señales de entrada que pudiesen disparar varias veces la interrupción correspondiente. Por ejemplo, al pulsar el botón de apertura se registraban varias pulsaciones seguidas debidas a chispas en el contacto del pulsador, con esta función se filtran todas las repeticiones (rebotes) que corresponden a una única pulsación.
+Hemos utilizado la [función devounce disponible en github](https://gist.github.com/marcelstoer/59563e791effa4acb65f), para evitar rebotes en esas señales de entrada que pudiesen disparar varias veces la interrupción correspondiente. Por ejemplo, al pulsar el botón de apertura se registraban varias pulsaciones seguidas debidas a chispas en el contacto del pulsador, con esta función se filtran todas las repeticiones (rebotes) que corresponden a una única pulsación.
 
 ### Servidor de páginas web
 
