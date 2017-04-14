@@ -74,7 +74,7 @@ La función que realiza este botón es llamar a la página web de nuestro módul
 ![bloques](imagenes/ejemplo_bloques.PNG)
 
 
-La [App para Android está disponible en la galería](http://ai2.appinventor.mit.edu/?galleryId=6638221398900736) de [App Inventor](http://ai2.appinventor.mit.edu). Se puede buscar por el nombre (App Puerta Wi-Fi). También se ha exportado e incluido en el repositorio [APP_Puerta.aia](AppInventor2/APP_Puerta.aia)
+La [App para Android está disponible en la galería](http://ai2.appinventor.mit.edu/?galleryId=6638221398900736) de App Inventor. Se puede buscar por el nombre (App Puerta Wi-Fi). También se ha exportado e incluido en el repositorio [APP_Puerta.aia](AppInventor2/APP_Puerta.aia)
 ## Referencias
 
 [Documentación módulos del firmware NodeMCU](https://nodemcu.readthedocs.io/en/master/en/)
@@ -82,4 +82,6 @@ La [App para Android está disponible en la galería](http://ai2.appinventor.mit
 [Drivers windows para conectar con la placa NodeMCU](https://www.pololu.com/docs/0J7/all)
 
 [ESPlorer: para trabajar y conectarnos con el ESP8266 NodeMCU](https://esp8266.ru/esplorer/)
+
+[App Inventor](http://ai2.appinventor.mit.edu)
 
