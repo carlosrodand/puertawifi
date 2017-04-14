@@ -66,7 +66,10 @@ Materiales para la electrónica:
 
 La [App para Android está disponible en la galería](http://ai2.appinventor.mit.edu/?galleryId=6638221398900736) de [App Inventor](http://ai2.appinventor.mit.edu). Se puede buscar por el nombre (App Puerta Wi-Fi). También se ha exportado e incluido en el repositorio [APP_Puerta.aia](AppInventor2/APP_Puerta.aia)
 ## Referencias
+
 [Documentación módulos del firmware NodeMCU URL](https://nodemcu.readthedocs.io/en/master/en/)
+
 [Drivers para conectar con la placa NodeMCU](https://www.pololu.com/docs/0J7/all)
+
 [ESPlorer: IDE para trabajar y conectarnos con el ESP8266 NodeMCU](https://esp8266.ru/esplorer/)
 
