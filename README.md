@@ -87,6 +87,7 @@ Por ejemplo en la página principal de nuestra App hay un botón para abrir la p
 ![app](imagenes/screen_app.PNG)
 
 La función que realiza este botón es llamar a la página web de nuestro módulo ESP con el parámetro abrir (http://192.168.4.1/?abrir), que será detectado por nuestro código y lanzará la misma función que se ejecuta cuando se pulsa físicamente el pulsador de apertura.
+
 ![bloques](imagenes/ejemplo_bloques.PNG)
 
 La [App para Android está disponible en la galería](http://ai2.appinventor.mit.edu/?galleryId=6638221398900736) de App Inventor. Se puede buscar por el nombre (App Puerta Wi-Fi). También se ha exportado e incluido en el repositorio [APP_Puerta.aia](AppInventor2/APP_Puerta.aia)
