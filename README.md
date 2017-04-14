@@ -80,6 +80,9 @@ Para la mayoría de los problemas de programación que hemos tenido que resolver
 
 Para controlar la puerta mantenemos en una variable el estado actual de la puerta (cerrado, abriendo, abierto o cerrando) y atendiendo a los eventos que ocurren vamos cambiando de estado activando en cada uno de ellos las señales necesarias para controlar el motor y el semáforo.
 
+
+![control](imagenes/control.PNG)
+
 Los eventos en nuestro programa los provocan las entradas digitales que están conectadas al pulsador de apertura, los finales de carrera y el sensor de obstáculos. Estás entradas provocan interrupciones (configuradas con las funciones del módulo gpio). Las interrupciones son un mecanismo que permite ejecutar una función (tratamiento de la interrupción) cuando se produce un evento identificado por un cambio en el estado de una entrada digital. Cuando cualquiera de estas entradas cambia de estado se ejecuta la función correspondiente, que comprueba el estado en el que se encuentra la puerta y si es necesario, cambia al nuevo estado activando las salidas necesarias (motor, semáforo, ...).
 
 Hemos utilizado la [función devounce disponible en github](https://gist.github.com/marcelstoer/59563e791effa4acb65f), para evitar rebotes en esas señales de entrada que pudiesen disparar varias veces la interrupción correspondiente. Por ejemplo, al pulsar el botón de apertura se registraban varias pulsaciones seguidas debidas a chispas en el contacto del pulsador, con esta función se filtran todas las repeticiones (rebotes) que corresponden a una única pulsación.
@@ -91,6 +94,8 @@ Al arrancar el programa se crea un servidor de páginas web que queda pendiente 
 Para crear el servidor de páginas web y cómo controlar el módulos desde una aplicación móvil nos hemos basado en dos tutoriales: [servidor web](http://randomnerdtutorials.com/esp8266-web-server/) y [aplicación android](http://randomnerdtutorials.com/esp8266-controlled-with-android-app-mit-app-inventor/)
 
 Cuando llega una petición analizamos su contenido y actuamos en consecuencia. Por ejemplo para abrir la puerta, cuando llega la petición "http://192.168.4.1/?abrir" al servidor de páginas web, llamamos a la función ```boton()``` que es la que se ejecuta cuando se pulsa el botón de apertura. Para cambiar el volumen del altavoz o el tiempo de apertura de la puerta, lo que hacemos es cambiar el valor de las variables que almacenan estos parámetros.
+
+![web](imagenes/web.PNG)
 
 ### Control automático de iluminación
 
@@ -116,6 +121,8 @@ Después de esto solo queda ponerlo en marcha o detenerlo para activar o desacti
    
    luminosidad:stop()
 ```
+
+![iluminacion](imagenes/iluminacion.PNG)
 
 ## Aplicación móvil
 
