@@ -1,18 +1,18 @@
 # Puerta automática con control Wi-Fi
 ![puerta](imagenes/puerta.jpg)
-### IES Torre Atalaya
+### IES Torre Atalaya (3º ESO)
 Realizado por:
 * Carlos Rodríguez
 * Mario Gómez
 * Javier Figueroa
 
-Profesor: Jose Antonio Romero
+Profesor: José Antonio Romero
 ## Resumen
 Nuestro proyecto de tecnología consiste en la construcción de una puerta corredera automática y controlada inalámbricamente mediante Wi-Fi, por ejemplo con un smartphone.
 
 El funcionamiento de la puerta es el siguiente: 
 1. Cuando pulsamos el botón de apertura, el semáforo se pone en rojo, empieza a sonar un zumbido a intervalos regulares para alertar del movimiento de la puerta y la puerta comienza a abrirse. 
-2. Cuando la puerta se abre totalmente, se detiene. Se para el zumbido y se pone el semáforo en verde. Permanecerá abierta durante el intervalo de tiempo que tenga programado.
+2. Cuando la puerta se abre totalmente, se detiene, Se para el zumbido y se pone el semáforo en verde. Permanecerá abierta durante el intervalo de tiempo que tenga programado.
 3. Después del periodo de apertura programado, el semáforo se pone en rojo, el zumbido empieza a sonar y la puerta se cierra.
 4. Si durante el cierre se detecta un obstáculo en el camino de la puerta, la puerta retrocede a la posición de apertura y el zumbido suena con más frecuencia. Se continúa en el paso 2.
 5. Cuando la puerta se cierra totalmente se detiene la puerta, se apaga el semáforo y el zumbido.
@@ -25,7 +25,7 @@ El control del sistema lo realiza un módulo ESP8266 con conexión Wi-Fi. Hemos 
 * cambiar el volumen del altavoz
 * apagar o encender las farolas o activar su funcionamiento automático
 
-Estas funciones se pueden realizar a traves de un **navegador web** una vez que nos hemos conectado al punto de acceso Wi-Fi que genera el módulo ESP (en nuestro caso: PuertaWiFi , clave: torreatalaya). La dirección de la página web es http://192.168.4.1
+Estas funciones se pueden realizar a través de un **navegador web** una vez que nos hemos conectado al punto de acceso Wi-Fi que genera el módulo ESP (en nuestro caso: PuertaWiFi , clave: torreatalaya). La dirección de la página web es http://192.168.4.1
 
 También podemos usar la **aplicación Android** que hemos desarrollado con App Inventor para controlar la puerta y realizar las mismas funciones que hay en la página web.
 
@@ -42,7 +42,7 @@ Materiales para la construcción:
 
 ## Diseño de la electrónica
 
-Para controlar nuestra puerta hemos usado un módulo ESP8266 con firmware NodeMCU. Este módulo tiene un microcontrolador que se puede programar usando el lenguaje Lua y además tiene conectividad Wi-Fi. Con ayuda de unos interruptores fin de carrera podemos detectar cuando la puerta llega al final de la apertura o cierre. También hemos usado un sensor de obstáculos por infrarrojos para detectar obstaculos en el camino de la puerta y poder evitar accidentes. El motor lo controlamos con ayuda de un circuito integrado L293 que se encarga de dar corriente al motor y cambiar la polaridad dependiendo del estado de dos salidas de nuestro módulo ESP8266.
+Para controlar nuestra puerta hemos usado un módulo ESP8266 con firmware NodeMCU. Este módulo tiene un microcontrolador que se puede programar usando el lenguaje Lua y además tiene conectividad Wi-Fi. Con ayuda de unos interruptores fin de carrera podemos detectar cuándo la puerta llega al final de la apertura o cierre. También hemos usado un sensor de obstáculos por infrarrojos para detectar obstáculos en el camino de la puerta y poder evitar accidentes. El motor lo controlamos con ayuda de un circuito integrado L293 que se encarga de dar corriente al motor y cambiar la polaridad dependiendo del estado de dos salidas de nuestro módulo ESP8266.
 
 Los componentes electrónicos que no hemos reusado y recuperado de viejos aparatos, los hemos comprado por ebay en tiendas de electrónica. El componente más caro es el módulo ESP8266 que ha costado sobre 6 euros en una tienda española de ebay.
 
@@ -85,15 +85,15 @@ Para controlar la puerta mantenemos en una variable el estado actual de la puert
 
 ![control](imagenes/control.PNG)
 
-Los eventos en nuestro programa los provocan las entradas digitales que están conectadas al pulsador de apertura, los finales de carrera y el sensor de obstáculos. Estás entradas provocan interrupciones (configuradas con las funciones del módulo gpio). Las interrupciones son un mecanismo que permite ejecutar una función (tratamiento de la interrupción) cuando se produce un evento identificado por un cambio en el estado de una entrada digital. Cuando cualquiera de estas entradas cambia de estado se ejecuta la función correspondiente, que comprueba el estado en el que se encuentra la puerta y si es necesario, cambia al nuevo estado activando las salidas necesarias (motor, semáforo, ...).
+Los eventos en nuestro programa los provocan las entradas digitales que están conectadas al pulsador de apertura, los finales de carrera y el sensor de obstáculos. Estas entradas provocan interrupciones (configuradas con las funciones del módulo gpio). Las interrupciones son un mecanismo que permite ejecutar una función (tratamiento de la interrupción) cuando se produce un evento identificado por un cambio en el estado de una entrada digital. Cuando cualquiera de estas entradas cambia de estado se ejecuta la función correspondiente, que comprueba el estado en el que se encuentra la puerta y si es necesario, cambia al nuevo estado activando las salidas necesarias (motor, semáforo, ...).
 
 Hemos utilizado la [función devounce disponible en github](https://gist.github.com/marcelstoer/59563e791effa4acb65f), para evitar rebotes en esas señales de entrada que pudiesen disparar varias veces la interrupción correspondiente. Por ejemplo, al pulsar el botón de apertura se registraban varias pulsaciones seguidas debidas a chispas en el contacto del pulsador, con esta función se filtran todas las repeticiones (rebotes) que corresponden a una única pulsación.
 
 ### Servidor de páginas web
 
-Al arrancar el programa se crea un servidor de páginas web que queda pendiente de las peticiones que lleguén por la red Wi-Fi. El servidor queda a la escucha en ```http://192.168.4.1```
+Al arrancar el programa se crea un servidor de páginas web que queda pendiente de las peticiones que lleguen por la red Wi-Fi. El servidor queda a la escucha en ```http://192.168.4.1```
 
-Para crear el servidor de páginas web y cómo controlar el módulos desde una aplicación móvil nos hemos basado en dos tutoriales: [servidor web](http://randomnerdtutorials.com/esp8266-web-server/) y [aplicación android](http://randomnerdtutorials.com/esp8266-controlled-with-android-app-mit-app-inventor/)
+Para crear el servidor de páginas web y cómo controlar el módulo desde una aplicación móvil nos hemos basado en dos tutoriales: [servidor web](http://randomnerdtutorials.com/esp8266-web-server/) y [aplicación android](http://randomnerdtutorials.com/esp8266-controlled-with-android-app-mit-app-inventor/)
 
 Cuando llega una petición analizamos su contenido y actuamos en consecuencia. Por ejemplo para abrir la puerta, cuando llega la petición ```http://192.168.4.1/?abrir``` al servidor de páginas web, llamamos a la función ```boton()``` que es la que se ejecuta cuando se pulsa el botón de apertura. Para cambiar el volumen del altavoz o el tiempo de apertura de la puerta, lo que hacemos es cambiar el valor de las variables que almacenan estos parámetros.
 
@@ -101,7 +101,7 @@ Cuando llega una petición analizamos su contenido y actuamos en consecuencia. P
 
 ### Control automático de iluminación
 
-También tenemos un temporizador que cada segundo lee el nivel de luz ambiente y dependiendo de si está por encima o por debajo de cierto humbral se apagan o encienden las luces de las farolas que tenemos en nuestra maqueta. Para activar o desactivar esta función automática, solo hay que poner en marcha o parar el temporizador que ejecuta esta función periodicamente.
+También tenemos un temporizador que cada segundo lee el nivel de luz ambiente y dependiendo de si está por encima o por debajo de cierto umbral se apagan o encienden las luces de las farolas que tenemos en nuestra maqueta. Para activar o desactivar esta función automática, sólo hay que poner en marcha o parar el temporizador que ejecuta esta función periódicamente.
 
 Este es el código que crea un temporizador llamado luminosidad y lo registra para que se ejecute cada segundo:
 ```[lua]
@@ -116,7 +116,7 @@ Este es el código que crea un temporizador llamado luminosidad y lo registra pa
       end
    end) 
 ```
-Después de esto solo queda ponerlo en marcha o detenerlo para activar o desactivar el control automático del alumbrado. Se puede hacer con las ordenes lua:
+Después de esto sólo queda ponerlo en marcha o detenerlo para activar o desactivar el control automático del alumbrado. Se puede hacer con las órdenes lua:
 
 ```[lua]
    luminosidad:start()
