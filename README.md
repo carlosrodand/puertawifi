@@ -70,13 +70,53 @@ La programación el módulo ESP que controla la puerta se ha realizado usando el
 * pwm: para generar una onda y hacer sonar un pitido en el altavoz
 * net: para crear un servidor de páginas web
 
-Para la mayoría de los problemas de programación que hemos tenido que resolver hemos seguido los ejemplos que se pueden encontrar en la [documentación módulos del firmware NodeMCU](https://nodemcu.readthedocs.io/en/master/en/).
+Para la mayoría de los problemas de programación que hemos tenido que resolver hemos seguido los ejemplos que se pueden encontrar en la [documentación módulos del firmware NodeMCU](https://nodemcu.readthedocs.io/en/master/en/). Por ejemplo el código necesario para crear una red Wi-Fi es así de sencillo:
+```[lua]
+   wifi.setmode(wifi.SOFTAP)  -- wifi en modo punto de acceso
+   CONFIGURACION={}
+   CONFIGURACION.ssid="PuertaWiFi"  -- nombre wifi
+   CONFIGURACION.pwd="torreatalaya" -- clave
+   wifi.ap.config(CONFIGURACION)
+```
 
-Las entradas digitales que provienen del pulsador de apertura, los finales de carrera y el sensor de obstáculos están controladas mediante interrupciones (creadas con las funciones del módulo gpio). Cuando cualquiera de estas entradas cambia de estado se ejecuta una función que comprueba el estado en el que se encuentra la puerta y si es necesario, cambia al nuevo estado activando las salidas necesarias (motor, semáforo, ...).
+Para controlar la puerta mantenemos en una variable el estado actual de la puerta (cerrado, abriendo, abierto o cerrando) y atendiendo a los eventos que ocurren vamos cambiando de estado activando en cada uno de ellos las señales necesarias para controlar el motor y el semáforo.
 
-Hemos utilizado la función [devounce](https://gist.github.com/marcelstoer/59563e791effa4acb65f) para evitar rebotes en esas señales de entrada que pudiesen disparar varias veces la interrupción correspondiente. Antes de utizarla, por ejemplo, al pulsar el botón de apertura, se registraban varias pulsaciones seguidas.
+Los eventos en nuestro programa los provocan las entradas digitales que están conectadas al pulsador de apertura, los finales de carrera y el sensor de obstáculos. Estás entradas provocan interrupciones (configuradas con las funciones del módulo gpio). Las interrupciones son un mecanismo que permite ejecutar una función (tratamiento de la interrupción) cuando se produce un evento identificado por un cambio en el estado de una entrada digital. Cuando cualquiera de estas entradas cambia de estado se ejecuta la función correspondiente, que comprueba el estado en el que se encuentra la puerta y si es necesario, cambia al nuevo estado activando las salidas necesarias (motor, semáforo, ...).
 
-Para crear el servidor de páginas web y cómo controlar el módulos desde una aplicación móvil hemos usado los tutoriales: [servidor web](http://randomnerdtutorials.com/esp8266-web-server/) y [aplicación android](http://randomnerdtutorials.com/esp8266-controlled-with-android-app-mit-app-inventor/)
+Hemos utilizado la función [devounce](https://gist.github.com/marcelstoer/59563e791effa4acb65f) disponible en github, para evitar rebotes en esas señales de entrada que pudiesen disparar varias veces la interrupción correspondiente. Por ejemplo, al pulsar el botón de apertura se registraban varias pulsaciones seguidas debidas a chispas en el contacto del pulsador, con esta función se filtran todas las repeticiones (rebotes) que corresponden a una única pulsación.
+
+### Servidor de páginas web
+
+Al arrancar el programa se crea un servidor de páginas web que queda pendiente de las peticiones que lleguén por la red Wi-Fi. El servidor queda a la escucha en http://192.168.4.1 
+
+Para crear el servidor de páginas web y cómo controlar el módulos desde una aplicación móvil nos hemos basado en dos tutoriales: [servidor web](http://randomnerdtutorials.com/esp8266-web-server/) y [aplicación android](http://randomnerdtutorials.com/esp8266-controlled-with-android-app-mit-app-inventor/)
+
+Cuando llega una petición analizamos su contenido y actuamos en consecuencia. Por ejemplo para abrir la puerta, cuando llega la petición "http://192.168.4.1/?abrir" al servidor web, llamamos a la función boton() que es la que se ejecuta cuando se pulsa el botón de apertura. Para cambiar el volumen del altavoz o el tiempo de apertura de la puerta, lo que hacemos es cambiar el valor de las variables que almacenan estos parámetros.
+
+### Control automático de iluminación
+
+También tenemos un temporizador que cada segundo lee el nivel de luz ambiente y dependiendo de si está por encima o por debajo de cierto humbral se apagan o encienden las luces de las farolas que tenemos en nuestra maqueta. Para activar o desactivar esta función automática, solo hay que poner en marcha o parar el temporizador que ejecuta esta función periodicamente.
+
+Este es el código que crea un temporizador llamado luminosidad y lo registra para que se ejecute cada segundo:
+```[lua]
+   luminosidad=tmr.create()
+   luminosidad:register(1000, tmr.ALARM_AUTO, function (timer)
+      luz = adc.read(0)--leo nivel de luz
+      print("nivel luz "..luz)
+      if luz < niveldeluz then
+        gpio.write(farolas,1)
+      else
+        gpio.write(farolas,0)
+      end
+   end) 
+```
+Después de esto solo queda ponerlo en marcha o detenerlo para activar o desactivar el control automático del alumbrado. Se puede hacer con las ordenes lua:
+
+```[lua]
+   luminosidad:start()
+   
+   luminosidad:stop()
+```
 
 ## Aplicación móvil
 
