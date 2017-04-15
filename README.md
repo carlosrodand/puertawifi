@@ -85,9 +85,12 @@ Para controlar la puerta mantenemos en una variable el estado actual de la puert
 
 ![control](imagenes/control.PNG)
 
-Los eventos en nuestro programa los provocan las entradas digitales que están conectadas al pulsador de apertura, los finales de carrera y el sensor de obstáculos. Estas entradas provocan interrupciones (configuradas con las funciones del módulo gpio). Las interrupciones son un mecanismo que permite ejecutar una función (tratamiento de la interrupción) cuando se produce un evento identificado por un cambio en el estado de una entrada digital. Cuando cualquiera de estas entradas cambia de estado se ejecuta la función correspondiente, que comprueba el estado en el que se encuentra la puerta y si es necesario, cambia al nuevo estado activando las salidas necesarias (motor, semáforo, ...).
-
-Hemos utilizado la [función devounce disponible en github](https://gist.github.com/marcelstoer/59563e791effa4acb65f), para evitar rebotes en esas señales de entrada que pudiesen disparar varias veces la interrupción correspondiente. Por ejemplo, al pulsar el botón de apertura se registraban varias pulsaciones seguidas debidas a chispas en el contacto del pulsador, con esta función se filtran todas las repeticiones (rebotes) que corresponden a una única pulsación.
+Los cambios de estado en nuestro sistema son provocados por las conexiones de entrada desde otras partes del circuito: el pulsador de apertura, los dos finales de carrera y el sensor de obstáculos. Cuando cualquiera de estas conexiones de entrada cambia de estado se lanza una función como respuesta, que comprueba el estado en el que se encuentra la puerta y si es necesario, cambia al nuevo estado activando las salidas necesarias (motor, semáforo, ...). Mediante el módulo ```gpio``` de NodeMCU se puede programar una función de respuesta a una señal externa conectada a una entrada. Por ejemplo para si queremos que cuando pulsemos el pulsador conectando a la entrada 2 de nuestro módulo se lance la función ```boton``` tenemos que usar las dos funciones ```gpio.mode``` y ```gpio.trig``` así:
+```
+  pulsador=2
+  gpio.mode(pulsador, gpio.INT, gpio.PULLUP)  --boton apertura
+  gpio.trig(pulsador, "down", boton)
+```
 
 ### Servidor de páginas web
 
