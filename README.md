@@ -85,12 +85,13 @@ Para controlar la puerta mantenemos en una variable el estado actual de la puert
 
 ![control](imagenes/control.PNG)
 
-Los cambios de estado en nuestro sistema son provocados por las conexiones de entrada desde otras partes del circuito: el pulsador de apertura, los dos finales de carrera y el sensor de obstáculos. Cuando cualquiera de estas conexiones de entrada cambia de estado se lanza una función como respuesta, que comprueba el estado en el que se encuentra la puerta y si es necesario, cambia al nuevo estado activando las salidas necesarias (motor, semáforo, ...). Mediante el módulo ```gpio``` de NodeMCU se puede programar una función de respuesta a una señal externa conectada a una entrada. Por ejemplo para si queremos que cuando pulsemos el pulsador conectando a la entrada 2 de nuestro módulo se lance la función ```boton``` tenemos que usar las dos funciones ```gpio.mode``` y ```gpio.trig``` así:
+Los cambios de estado en nuestro sistema son provocados por las conexiones de entrada desde diferentes partes del circuito: el pulsador de apertura, los dos finales de carrera y el sensor de obstáculos. Cuando cualquiera de estas conexiones de entrada cambia de estado se lanza una función como respuesta que comprueba el estado en el que se encuentra la puerta y si es necesario, cambia al nuevo estado activando las salidas necesarias (motor, semáforo, ...). Mediante el módulo ```gpio``` de NodeMCU se puede programar una función de respuesta a una señal externa conectada a una entrada. Por ejemplo para si queremos que cuando pulsemos el pulsador conectando a la entrada 2 de nuestro módulo se lance la función ```boton``` tenemos que usar las dos funciones ```gpio.mode``` y ```gpio.trig``` así:
 ```
   pulsador=2
-  gpio.mode(pulsador, gpio.INT, gpio.PULLUP)  --boton apertura
-  gpio.trig(pulsador, "down", boton)
+  gpio.mode(pulsador, gpio.INT, gpio.PULLUP)  -- pulsador funciona como una interrupción y normalmente está a nivel alto
+  gpio.trig(pulsador, "down", boton) -- lanza la función "boton" cuando pulsador esté a nivel bajo ("down")
 ```
+En nuestro circuito todas las señales (pulsador, fines de carrera, sensor de obstáculos) son activas a nivel bajo, es decir, actuan cuando se conectan a 0V (GND).
 
 ### Servidor de páginas web
 
