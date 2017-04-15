@@ -30,7 +30,7 @@ Estas funciones se pueden realizar a través de un **navegador web** una vez que
 También podemos usar la **aplicación Android** que hemos desarrollado con App Inventor para controlar la puerta y realizar las mismas funciones que hay en la página web.
 
 ## Diseño mecánico
-El diseño mecánico de la puerta corredera está basado en el mecanismo "tornillo-tuerca", donde un motor eléctrico, mediante un sistema de poleas y correa, hace girar el tornillo (varilla roscada) que consigue que la puerta se deslice al estar fijada a dos tuercas que están insertadas en la varilla roscada. Para mejorar la suavidad de funcionamiento, la varilla roscada está sujeta mediante dos rodamientos de bolas.
+El diseño mecánico de la puerta corredera está basado en el mecanismo "tornillo-tuerca",un mecanismo que combierte el movimiento gitatorio de un tornillo en el avance lineal de una tuerca, en nuestro proyecto, un motor eléctrico mediante un sistema de poleas y correa, hace girar el tornillo (varilla roscada) que consigue que la puerta se deslice al estar fijada a dos tuercas que están insertadas en la varilla roscada. Para mejorar la suavidad de funcionamiento, la varilla roscada está sujeta mediante dos rodamientos de bolas.
 
 ![puerta corredera](imagenes/puerta-corredera2.jpg)
 
