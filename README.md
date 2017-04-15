@@ -85,7 +85,7 @@ Para controlar la puerta mantenemos en una variable el estado actual de la puert
 
 ![control](imagenes/control.PNG)
 
-Los cambios de estado en nuestro sistema son provocados por las conexiones de entrada desde diferentes partes del circuito: el pulsador de apertura, los dos finales de carrera y el sensor de obstáculos. Cuando cualquiera de estas conexiones de entrada cambia de estado se lanza una función como respuesta que comprueba el estado en el que se encuentra la puerta y si es necesario, cambia al nuevo estado activando las salidas necesarias (motor, semáforo, ...). Mediante el módulo ```gpio``` de NodeMCU se puede programar una función de respuesta a una señal externa conectada a una entrada. Por ejemplo para si queremos que cuando pulsemos el pulsador conectando a la entrada 2 de nuestro módulo se lance la función ```boton``` tenemos que usar las dos funciones ```gpio.mode``` y ```gpio.trig``` así:
+Los cambios de estado en nuestro sistema son provocados por las conexiones de entrada desde diferentes partes del circuito: el pulsador de apertura, los dos finales de carrera y el sensor de obstáculos. Cuando cualquiera de estas conexiones de entrada cambia de estado se lanza una función como respuesta que comprueba el estado en el que se encuentra la puerta y si es necesario, cambia al nuevo estado activando las salidas necesarias (motor, semáforo, ...). Mediante el módulo ```gpio``` de NodeMCU se puede programar una función de respuesta a una señal externa conectada a una entrada. Por ejemplo, si queremos que cuando pulsemos el pulsador conectando a la entrada 2 de nuestro módulo se lance la función ```boton``` tenemos que usar las dos funciones ```gpio.mode``` y ```gpio.trig``` así:
 ```
   pulsador=2
   
