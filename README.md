@@ -80,6 +80,8 @@ Para la mayoría de los problemas de programación que hemos tenido que resolver
    wifi.ap.config(CONFIGURACION)
 ```
 
+El firmware NodeMCU busca y ejecuta el programa ```init.lua``` al arrancar el módulo. Desde este programa nosotros ejecutamos el programa principal ```programa.lua``` que a su vez ejecuta ```sonido.lua``` y ```wifi.lua```. En  ```wifi.lua``` tenemos la configuración Wi-Fi y el servidor de páginas web. En ```sonido.lua``` tenemos funciones para generar pitidos en nuestro altavoz. Y en ```programa.lua``` es donde están las funciones que controlan la puerta.
+
 Para controlar la puerta mantenemos en una variable el estado actual de la puerta (cerrado, abriendo, abierto o cerrando) y atendiendo a los eventos que ocurren vamos cambiando de estado activando en cada uno de ellos las señales necesarias para controlar el motor y el semáforo.
 
 
