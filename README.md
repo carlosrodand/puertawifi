@@ -105,7 +105,7 @@ En nuestro circuito todas las señales (pulsador, fines de carrera, sensor de ob
 
 ### Servidor de páginas web
 
-Al arrancar el programa se crea un servidor de páginas web que queda pendiente de las peticiones que lleguen por la red Wi-Fi. El servidor queda a la escucha en ```http://192.168.4.1```
+Al arrancar el ```programa.lua```  se ejecuta ```wifi.lua``` donde se crea un servidor de páginas web que queda pendiente de las peticiones que lleguen por la red Wi-Fi. El servidor queda a la escucha en ```http://192.168.4.1```
 
 Para crear el servidor de páginas web y cómo controlar el módulo desde una aplicación móvil nos hemos basado en dos tutoriales: [servidor web](http://randomnerdtutorials.com/esp8266-web-server/) y [aplicación android](http://randomnerdtutorials.com/esp8266-controlled-with-android-app-mit-app-inventor/)
 
