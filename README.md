@@ -47,8 +47,8 @@ Para controlar nuestra puerta hemos usado un módulo ESP8266 con firmware NodeMC
 Los componentes electrónicos que no hemos reusado y recuperado de viejos aparatos, los hemos comprado por ebay en tiendas de electrónica. El componente más caro es el módulo ESP8266 que ha costado sobre 6 euros en una tienda española de ebay.
 
 Materiales para la electrónica:
-* placa de desarrollo ESP8266 NodeMCU (control)
-* circuito integrado L293 (corriente al motor)
+* placa de desarrollo ESP8266 NodeMCU DEVKIT (para control, es *open hardware*)
+* circuito integrado L293 (para dar corriente al motor)
 * LED rojo y verde, y resistencia 220 Ohms (semáforo)
 * pulsador (botón apertura)
 * sensor infrarrojos (obstáculos) 
@@ -168,3 +168,7 @@ La [App para Android está disponible en la galería](http://ai2.appinventor.mit
 [Tutorial control con aplicación android en ESP8266](http://randomnerdtutorials.com/esp8266-controlled-with-android-app-mit-app-inventor/)
 
 [Función para evitar rebotes en la pulsación de un botón](https://gist.github.com/marcelstoer/59563e791effa4acb65f)
+
+[Circuito L293](http://www.manuelvillasur.com/2012/10/driver-l293d-de-texas-instruments.html)
+
+[ESP8266 NodeMCU DEVKIT - open hardware](https://github.com/nodemcu/nodemcu-devkit-v1.0)
