@@ -8,7 +8,7 @@ Realizado por:
 
 Profesor: José Antonio Romero
 ## Resumen
-Nuestro proyecto de tecnología consiste en la construcción de una puerta corredera automática y controlada inalámbricamente mediante Wi-Fi, por ejemplo con un smartphone.
+Nuestro proyecto de tecnología consiste en la construcción de una puerta corredera automática y controlada inalámbricamente mediante Wi-Fi con un navegador web o una aplicación para móvil.
 
 El funcionamiento de la puerta es el siguiente: 
 1. Cuando pulsamos el botón de apertura, el semáforo se pone en rojo, empieza a sonar un zumbido a intervalos regulares para alertar del movimiento de la puerta y la puerta comienza a abrirse. 
