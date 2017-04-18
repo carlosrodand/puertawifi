@@ -6,7 +6,7 @@ Programas Lua para ESP8266 NodeMCU:
 Arranque del sistema, carga `programa.lua`
 
 ### programa.lua
-Programa principal de control de la puerta, también carga los siguientes ficheros
+Programa principal de control de la puerta, también carga los demás ficheros (`wifi.lua sonido.lua`)
 
 ### wifi.lua
 Configura la Wi-Fi y crea el servidor de páginas web
