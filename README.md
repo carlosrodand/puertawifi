@@ -82,7 +82,7 @@ Para la mayoría de los problemas de programación que hemos tenido que resolver
 
 El firmware NodeMCU busca y ejecuta el programa ```init.lua``` al arrancar el módulo. Desde este programa nosotros ejecutamos el programa principal ```programa.lua``` que a su vez ejecuta ```sonido.lua``` y ```wifi.lua```. En  ```wifi.lua``` tenemos la configuración Wi-Fi y el servidor de páginas web. En ```sonido.lua``` tenemos funciones para generar pitidos en nuestro altavoz. Y en ```programa.lua``` es donde están las funciones que controlan la puerta.
 
-Para controlar la puerta mantenemos en una variable el estado actual de la puerta (cerrado, abriendo, abierto o cerrando) y atendiendo a los eventos que ocurren vamos cambiando de estado activando en cada uno de ellos las señales necesarias para controlar el motor y el semáforo.
+Para controlar la puerta mantenemos en una variable el estado actual de la puerta (cerrado, abriendo, abierto o cerrando) y atendiendo a los eventos que ocurren vamos cambiando de estado activando en cada uno de ellos las señales necesarias para controlar el motor, el semáforo y el sonido.
 
 
 ![control](imagenes/control.PNG)
@@ -93,15 +93,13 @@ Los cambios de estado en nuestro sistema son provocados por las conexiones de en
   
   -- configuramos la entrada pulsador (2)
   -- pulsador funciona como una interrupción y normalmente está a nivel alto
-  
-  gpio.mode(pulsador, gpio.INT, gpio.PULLUP)  
+  gpio.mode(pulsador, gpio.INT, gpio.PULLUP)  
   
   -- configuramos la función de respuesta a la entrada pulsador
   -- lanza la función "boton" cuando pulsador esté a nivel bajo ("down")
-  
-  gpio.trig(pulsador, "down", boton) 
+  gpio.trig(pulsador, "down", boton) 
 ```
-En nuestro circuito todas las señales (pulsador, fines de carrera, sensor de obstáculos) son activas a nivel bajo, es decir, actuan cuando se conectan a cero voltios (GND).
+En nuestro circuito todas las señales (pulsador, fines de carrera, sensor de obstáculos) actuan cuando se conectan a cero voltios (GND).
 
 ### Servidor de páginas web
 
