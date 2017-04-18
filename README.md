@@ -157,7 +157,7 @@ La [App para Android está disponible en la galería](http://ai2.appinventor.mit
 
 [Documentación módulos del firmware NodeMCU](https://nodemcu.readthedocs.io/en/master/en/)
 
-[Drivers windows para conectar con la placa NodeMCU](https://www.pololu.com/docs/0J7/all)
+[Drivers windows para conectar con la placa de desarrollo NodeMCU DEVKIT](https://www.pololu.com/docs/0J7/all)
 
 [ESPlorer: para trabajar y conectarnos con el ESP8266 NodeMCU](https://esp8266.ru/esplorer/)
 
