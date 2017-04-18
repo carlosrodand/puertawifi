@@ -52,7 +52,7 @@ Materiales para la electrónica:
 * LED rojo y verde, y resistencia 220 Ohms (semáforo)
 * pulsador (botón apertura)
 * sensor infrarrojos (obstáculos) 
-* 2 interruptores fin carrera (reusado de una impresora)
+* 2 interruptores final de carrera
 * altavoz (reusado de una impresora)
 * LDR (fotoresistencia) y resistencia 10 KOhms (para sensor luz)
 * 2 LEDS blancos y resistencia 220 Ohms (farolas)
