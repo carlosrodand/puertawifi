@@ -105,13 +105,13 @@ En nuestro circuito todas las señales (pulsador, fines de carrera, sensor de ob
 
 Al arrancar el ```programa.lua```  se ejecuta ```wifi.lua``` donde se crea un servidor de páginas web que queda pendiente de las peticiones que lleguen por la red Wi-Fi. El servidor queda a la escucha en ```http://192.168.4.1```
 
+![webpage](imagenes/webpage.PNG)
+
 Para crear el servidor de páginas web y cómo controlar el módulo desde una aplicación móvil nos hemos basado en dos tutoriales: [servidor web](http://randomnerdtutorials.com/esp8266-web-server/) y [aplicación android](http://randomnerdtutorials.com/esp8266-controlled-with-android-app-mit-app-inventor/)
 
 Cuando llega una petición analizamos su contenido y actuamos en consecuencia. Por ejemplo para abrir la puerta, cuando llega la petición ```http://192.168.4.1/?abrir``` al servidor de páginas web, llamamos a la función ```boton()``` que es la misma que se ejecuta cuando se pulsa el botón de apertura. Para cambiar el volumen del altavoz o el tiempo de apertura de la puerta, lo que hacemos es cambiar el valor de las variables que almacenan estos parámetros.
 
 ![web](imagenes/web.PNG)
-
-![webpage](imagenes/webpage.PNG)
 
 ### Control automático de iluminación
 
