@@ -147,6 +147,8 @@ Hemos diseñado una sencilla aplicación móvil para controlar la puerta usando 
 Por ejemplo en la página principal de nuestra App hay un botón para abrir la puerta:
 
 ![app](imagenes/screen_app.PNG)
+![app2](imagenes/config_app.PNG)
+![app3](imagenes/info_app.PNG)
 
 La función que realiza este botón es llamar a la página web de nuestro módulo ESP con el parámetro abrir (```http://192.168.4.1/?abrir```), que será detectado por nuestro código y lanzará la misma función que se ejecuta cuando se pulsa físicamente el pulsador de apertura.
 
