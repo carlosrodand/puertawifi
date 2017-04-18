@@ -99,7 +99,7 @@ Los cambios de estado en nuestro sistema son provocados por las conexiones de en
   -- lanza la función "boton" cuando pulsador esté a nivel bajo ("down")
   gpio.trig(pulsador, "down", boton) 
 ```
-En nuestro circuito todas las señales (pulsador, fines de carrera, sensor de obstáculos) actuan cuando se conectan a cero voltios (GND).
+En nuestro circuito todas las señales de entrada (pulsador, fines de carrera, sensor de obstáculos) actuan cuando se conectan a cero voltios (GND).
 
 ### Servidor de páginas web
 
