@@ -111,6 +111,8 @@ Cuando llega una petición analizamos su contenido y actuamos en consecuencia. P
 
 ![web](imagenes/web.PNG)
 
+![webpage](imagenes/webpage.PNG)
+
 ### Control automático de iluminación
 
 También tenemos un temporizador que cada segundo lee el nivel de luz ambiente y dependiendo de si está por encima o por debajo de cierto umbral se apagan o encienden las luces de las farolas que tenemos en nuestra maqueta. Para activar o desactivar esta función automática, sólo hay que poner en marcha o parar el temporizador que ejecuta esta función periódicamente.
