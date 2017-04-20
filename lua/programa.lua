@@ -90,7 +90,7 @@ function debounce (func)
     end
 end
   
-  luminosidad=tmr.create()
+  luminosidad=tmr.create() -- temporizador control luz auto
   luminosidad:register(1000, tmr.ALARM_AUTO, function (timer)
    luz = adc.read(0)--leo nivel de luz
    if luz < niveldeluz then
