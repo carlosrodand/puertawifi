@@ -33,58 +33,58 @@ servidorWeb:listen(80,function(conn)
         sonido(1000,75,512) -- sonido agudo
     end
     if (string.find(pagina,"pin=OFF")) then
-        -- llegó la orden pin=ON
+        -- llegó la orden pin=OFF
         print("pin=OFF")
         luminosidad:stop()
         gpio.write(farolas,0)
         sonido(1000,75,512) -- sonido agudo
     end
      if (string.find(pagina,"auto")) then
-        -- llegó la orden pin=ON
+        -- llegó la orden auto
         print("auto")
         luminosidad:start()
         sonido(1000,75,512) -- sonido agudo        
     end
      if (string.find(pagina,"abrir")) then
-        -- llegó la orden pin=ON
+        -- llegó la orden abrir
         print("pin=abrir")
         boton()
         sonido(1000,75,512) -- sonido agudo       
     end
      if (string.find(pagina,"mute")) then
-        -- llegó la orden pin=ON
+        -- llegó la orden mute
         print("mute")
         volumen=0  
         sonido(1000,75,512) -- sonido agudo        
     end
      if (string.find(pagina,"bajo")) then
-        -- llegó la orden pin=ON
+        -- llegó la orden bajo
         print("bajo")
         volumen=20 
         sonido(1000,75,512) -- sonido agudo        
     end
       if (string.find(pagina,"alto")) then
-        -- llegó la orden pin=ON
+        -- llegó la orden alto
         print("alto")
         volumen=400
         sonido(1000,75,512) -- sonido agudo         
     end
      if (string.find(pagina,"5s")) then
-        -- llegó la orden pin=ON
+        -- llegó la orden 5s
         print("5s")
         tiempocerrar=5000
         temporizador:interval(tiempocerrar)
         sonido(1000,75,512) -- sonido agudo        
     end
      if (string.find(pagina,"30s")) then
-        -- llegó la orden pin=ON
+        -- llegó la orden 30s
         print("30s")
         tiempocerrar=30000
         temporizador:interval(tiempocerrar)
         sonido(1000,75,512) -- sonido agudo        
     end
      if (string.find(pagina,"60s")) then
-        -- llegó la orden pin=ON
+        -- llegó la orden 60s
         print("60s")
         tiempocerrar=60000
         temporizador:interval(tiempocerrar)
