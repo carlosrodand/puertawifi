@@ -12,12 +12,12 @@ Nuestro proyecto de tecnología consiste en la construcción de una puerta corre
 
 El funcionamiento de la puerta es el siguiente: 
 1. Cuando pulsamos el botón de apertura, el semáforo se pone en rojo, empieza a sonar un zumbido a intervalos regulares para alertar del movimiento de la puerta y la puerta comienza a abrirse. 
-2. Cuando la puerta se abre totalmente, se detiene, Se para el zumbido y se pone el semáforo en verde. Permanecerá abierta durante el intervalo de tiempo que tenga programado.
+2. Cuando la puerta se abre totalmente, se detiene, se para el zumbido y se pone el semáforo en verde. Permanecerá abierta durante el intervalo de tiempo que tenga programado.
 3. Después del periodo de apertura programado, el semáforo se pone en rojo, el zumbido empieza a sonar y la puerta se cierra.
 4. Si durante el cierre se detecta un obstáculo en el camino de la puerta, la puerta retrocede a la posición de apertura y el zumbido suena con más frecuencia. Se continúa en el paso 2.
 5. Cuando la puerta se cierra totalmente se detiene la puerta, se apaga el semáforo y el zumbido.
 
-Además de esto se comprueba regularmente el nivel de luz ambiente mediante un sensor y cuando el nivel de luz baja se encienden las farolas de la calle. Cuando el nivel de luz es alto, las farolas se apagan.Esto es una forma de ahorrar electricidad ya que bien calibradas las farolas solo se encenderan cuando sea necesario.
+Además de esto se comprueba regularmente el nivel de luz ambiente mediante un sensor y cuando el nivel de luz baja se encienden las farolas de la calle. Cuando el nivel de luz es alto, las farolas se apagan. Esto es una forma de ahorrar electricidad ya que bien calibradas las farolas solo se encenderán cuando sea necesario.
 
 El control del sistema lo realiza un módulo ESP8266 con conexión Wi-Fi. Hemos programado una página web que permite controlar y programar la puerta. A **través de la Wi-Fi** se puede:
 * abrir la puerta
@@ -30,7 +30,7 @@ Estas funciones se pueden realizar a través de un **navegador web** una vez que
 También podemos usar la **aplicación Android** que hemos desarrollado con App Inventor para controlar la puerta y realizar las mismas funciones que hay en la página web.
 
 ## Diseño mecánico
-El diseño mecánico de la puerta corredera está basado en el mecanismo "tornillo-tuerca",un mecanismo que combierte el movimiento gitatorio de un tornillo en el avance lineal de una tuerca, en nuestro proyecto, un motor eléctrico mediante un sistema de poleas y correa, hace girar el tornillo (varilla roscada) que consigue que la puerta se deslice al estar fijada a dos tuercas que están insertadas en la varilla roscada. Para mejorar la suavidad de funcionamiento, la varilla roscada está sujeta mediante dos rodamientos de bolas.
+El diseño mecánico de la puerta corredera está basado en el mecanismo "tornillo-tuerca", un mecanismo que convierte el movimiento gitatorio de un tornillo en el avance lineal de una tuerca. En nuestro proyecto, un motor eléctrico mediante un sistema de poleas y correa, hace girar el tornillo (varilla roscada) que consigue que la puerta se deslice al estar fijada a dos tuercas que están insertadas en la varilla roscada. Para mejorar la suavidad de funcionamiento, la varilla roscada está sujeta mediante dos rodamientos de bolas.
 
 ![puerta corredera](imagenes/puerta-corredera2.jpg)
 
@@ -42,7 +42,7 @@ Materiales para la construcción:
 
 ## Diseño de la electrónica
 
-Para controlar nuestra puerta hemos usado un módulo ESP8266 con firmware NodeMCU. Este módulo tiene un microcontrolador que se puede programar usando el lenguaje Lua y además tiene conectividad Wi-Fi. Con ayuda de unos interruptores fin de carrera podemos detectar cuándo la puerta llega al final de la apertura o cierre. También hemos usado un sensor de obstáculos por infrarrojos para detectar obstáculos en el camino de la puerta y poder evitar accidentes. El motor lo controlamos con ayuda de un circuito integrado L293 que se encarga de dar corriente al motor y cambiar la polaridad dependiendo del estado de dos salidas de nuestro módulo ESP8266.
+Para controlar nuestra puerta hemos usado un módulo ESP8266 con firmware NodeMCU. Este módulo tiene un microcontrolador que se puede programar usando el lenguaje Lua y además tiene conectividad Wi-Fi. Con ayuda de unos interruptores fin de carrera podemos detectar cuándo la puerta llega al final de la apertura o cierre. También hemos usado un sensor de obstáculos por infrarrojos para detectar obstáculos en el camino de la puerta y poder evitar accidentes. El motor lo controlamos con ayuda de un circuito integrado L293 que se encarga de dar corriente al motor y cambiar la polaridad dependiendo del estado de dos de las salidas de nuestro módulo ESP8266.
 
 Los componentes electrónicos que no hemos reusado y recuperado de viejos aparatos, los hemos comprado por ebay en tiendas de electrónica. El componente más caro es el módulo ESP8266 que ha costado sobre 6 euros en una tienda española de ebay.
 
@@ -63,7 +63,7 @@ Materiales para la electrónica:
 
 ## Programación
 
-La programación el módulo ESP que controla la puerta se ha realizado usando el lenguaje Lua y el firmware NodeMCU para ESP8266. NodeMCU proporciona funciones sencillas para configurar la Wi-Fi o controlar las salidas y entradas digitales del módulo (GPIO). Algunos de los módulos del firmware NodeMCU que hemos utilizado son:
+La programación del módulo ESP que controla la puerta se ha realizado usando el lenguaje Lua y el firmware NodeMCU para ESP8266. NodeMCU proporciona funciones sencillas para configurar la Wi-Fi o controlar las salidas y entradas digitales del módulo (GPIO). Algunos de los módulos del firmware NodeMCU que hemos utilizado son:
 * wifi: para crear una red Wi-Fi
 * gpio: para controlar las salidas y entradas digitales del módulo
 * adc: para leer la entrada analógica del módulo y poder medir la intensidad de luz
@@ -71,7 +71,7 @@ La programación el módulo ESP que controla la puerta se ha realizado usando el
 * pwm: para generar una onda y hacer sonar un pitido en el altavoz
 * net: para crear un servidor de páginas web
 
-Para la mayoría de los problemas de programación que hemos tenido que resolver hemos seguido los ejemplos que se pueden encontrar en la [documentación módulos del firmware NodeMCU](https://nodemcu.readthedocs.io/en/master/en/). Por ejemplo el código necesario para crear una red Wi-Fi es así de sencillo:
+Para la mayoría de los problemas de programación que hemos tenido que resolver hemos seguido los ejemplos que se pueden encontrar en la [documentación módulos del firmware NodeMCU](https://nodemcu.readthedocs.io/en/master/en/). Por ejemplo, el código necesario para crear una red Wi-Fi es así:
 ```[lua]
    wifi.setmode(wifi.SOFTAP)  -- wifi en modo punto de acceso
    CONFIGURACION={}
@@ -80,7 +80,7 @@ Para la mayoría de los problemas de programación que hemos tenido que resolver
    wifi.ap.config(CONFIGURACION)
 ```
 
-El firmware NodeMCU busca y ejecuta el programa ```init.lua``` al arrancar el módulo. Desde este programa nosotros ejecutamos el programa principal ```programa.lua``` que a su vez ejecuta ```sonido.lua``` y ```wifi.lua```. En  ```wifi.lua``` tenemos la configuración Wi-Fi y el servidor de páginas web. En ```sonido.lua``` tenemos funciones para generar pitidos en nuestro altavoz. Y en ```programa.lua``` es donde están las funciones que controlan la puerta.
+El firmware NodeMCU busca y ejecuta el programa ```init.lua``` al arrancar el módulo. Desde este programa nosotros ejecutamos el programa principal ```programa.lua``` que, a su vez, ejecuta ```sonido.lua``` y ```wifi.lua```. En  ```wifi.lua``` tenemos la configuración Wi-Fi y el servidor de páginas web. En ```sonido.lua``` tenemos funciones para generar pitidos en nuestro altavoz. Y en ```programa.lua``` están las funciones que controlan la puerta.
 
 Para controlar la puerta mantenemos en una variable el estado actual de la puerta (cerrado, abriendo, abierto o cerrando) y atendiendo a los eventos que ocurren vamos cambiando de estado activando en cada uno de ellos las señales necesarias para controlar el motor, el semáforo y el sonido.
 
@@ -99,7 +99,7 @@ Los cambios de estado en nuestro sistema son provocados por las conexiones de en
   -- lanza la función "boton" cuando pulsador esté a nivel bajo ("down")
   gpio.trig(pulsador, "down", boton) 
 ```
-En nuestro circuito todas las señales de entrada (pulsador, fines de carrera, sensor de obstáculos) actuan cuando se conectan a cero voltios (GND).
+En nuestro circuito todas las señales de entrada (pulsador, fines de carrera, sensor de obstáculos) actúan cuando se conectan a cero voltios (GND).
 
 ### Servidor de páginas web
 
@@ -115,7 +115,7 @@ Cuando llega una petición analizamos su contenido y actuamos en consecuencia. P
 
 ### Control automático de iluminación
 
-También tenemos un temporizador que cada segundo lee el nivel de luz ambiente y dependiendo de si está por encima o por debajo de cierto umbral se apagan o encienden las luces de las farolas que tenemos en nuestra maqueta. Para activar o desactivar esta función automática, sólo hay que poner en marcha o parar el temporizador que ejecuta esta función periódicamente.
+También tenemos un temporizador que cada segundo lee el nivel de luz ambiente y dependiendo de si está por encima o por debajo de cierto umbral se apagan o encienden las luces de las farolas que tenemos en nuestra maqueta. Para activar o desactivar esta función automática, solo hay que poner en marcha o parar el temporizador que ejecuta esta función periódicamente.
 
 Este es el código que crea un temporizador llamado luminosidad y lo registra para que se ejecute cada segundo:
 ```[lua]
@@ -130,7 +130,7 @@ Este es el código que crea un temporizador llamado luminosidad y lo registra pa
       end
    end) 
 ```
-Después de esto sólo queda ponerlo en marcha o detenerlo para activar o desactivar el control automático del alumbrado. Se puede hacer con las órdenes lua:
+Después de esto solo queda ponerlo en marcha o detenerlo para activar o desactivar el control automático del alumbrado. Se puede hacer con las órdenes lua:
 
 ```[lua]
    luminosidad:start()
@@ -142,7 +142,7 @@ Después de esto sólo queda ponerlo en marcha o detenerlo para activar o desact
 
 ## Aplicación móvil
 
-Hemos diseñado una sencilla aplicación móvil para controlar la puerta usando App Inventor, una herramienta online para programar aplicaciones Android, muy visual y que permiter programar usando bloques.
+Hemos diseñado una aplicación móvil para controlar la puerta usando App Inventor, una herramienta online para programar aplicaciones Android, muy visual y que permite programar usando bloques.
 
 Por ejemplo en la página principal de nuestra App hay un botón para abrir la puerta:
 
@@ -153,7 +153,7 @@ La función que realiza este botón es llamar a la página web de nuestro módul
 
 ![bloques](imagenes/ejemplo_bloques.PNG)
 
-La [App para Android está disponible en la galería](http://ai2.appinventor.mit.edu/?galleryId=6638221398900736) de App Inventor. Se puede buscar por el nombre (App Puerta Wi-Fi). También se ha exportado e incluido en el repositorio ( [APP_Puerta.aia](AppInventor2/APP_Puerta.aia) , [APP_Puerta.apk](AppInventor2/APP_Puerta.apk) )
+La [App para Android está disponible en la galería](http://ai2.appinventor.mit.edu/?galleryId=6638221398900736) de App Inventor. Se puede buscar por el nombre (App Puerta Wi-Fi). También se ha exportado e incluido en este repositorio ( [APP_Puerta.aia](AppInventor2/APP_Puerta.aia) , [APP_Puerta.apk](AppInventor2/APP_Puerta.apk) )
 ## Referencias
 
 [Documentación módulos del firmware NodeMCU](https://nodemcu.readthedocs.io/en/master/en/)
